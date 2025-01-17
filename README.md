@@ -1,79 +1,10 @@
-# RemindMe
+RemindMe is a small project that utilizes Natural Language Processing to extract information from a simulated speech-to-text information recorded between patient and doctor. It then extracts information from the sentences and performs necessary actions based on it.
 
-Overview:
-This is a python project that simulates an app that reminds the user of his/her medicine schedules and records it to keep track
-of how many, what time to drink it and until when. This python project utilizes NLP(Natural Language Processing) from a recorded audio.
-To simulate this, the user will just have to input a sentence and the algorithm will process it to determine how much intake, for how long
-and every how many hours should the user drink the medicine. It will automatically be inputted unto the system and tracked that can be seen
-in the calendar
+**[Purpose & Goals]**
+ - The purpose of this project is to be able to simulate scenarios wherein a conversation is happening between a patient and a doctor. This app relies on text converted from speech, it then performs certain actions based on the extracted information. For instance, scheduling and setting the amount of dosage for medicine intake and tracking the amount taken and at what time its next intake should be.
 
-
-
-This is how it looks like:
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                                                                                                      May 2023                                                                                                                      |
-+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+
-|                Mo                |                Tu                |                We                |                Th                |                Fr                |                Sa                |                Su                |
-+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+
-| 1                                | 2                                | 3                                | 4                                | 5                                | 6                                | 7                                |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| 8                                | 9                                | 10                               | 11                               | 12                               | 13                               | 14                               |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| 15                               | 16                               | 17                               | 18                               | 19                               | 20                               | 21                               |
-|        amoxicillin  (3/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| 22                               | 23                               | 24                               | 25                               | 26                               | 27                               | 28                               |
-|        amoxicillin  (5/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |        amoxicillin  (0/9)        |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| 29                               | 30                               | 31                               |                                  |                                  |                                  |                                  |
-|        amoxicillin  (0/9)        |        amoxicillin  (9/9)        |        amoxicillin  (4/9)        |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-| -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  | -------------------------------  |
-|                                  |                                  |                                  |                                  |                                  |                                  |                                  |
-+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+----------------------------------+
-DATE -> 2023-05-20
-TIME -> 07:21:39.990662
---------------------------------
-1) next month
-2) prev month
-3) select certain date
-4) expand day
-5) enter a scheduled intake
-6) SIMULATE HOUR INCREASE (+)
-7) SIMULATE HOUR DECREASE (-)
-8) SIMULATE DAY INCREASE (+)
-9) SIMULATE DAY DECREASE (-)
-10) SIMULATE REMIND
-0) EXIT
-choice 0
+**[Features]**
+ - Information extraction
+ - automatic scheduling and setting of parameters
+ - Calendar tracking of progress
+ - User alarm and reminder (simulated scenario)
